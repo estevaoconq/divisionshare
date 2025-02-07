@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division Share Docs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space_Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#0B0F1A] text-white font-['Space_Grotesk']">
+    <!-- Header principal com logo e navegação -->
+    <header class="fixed top-0 left-0 right-0 bg-[#0B0F1A] border-b border-gray-800 z-50">
+        <div class="flex">
+            <!-- Logo e navegação principal alinhados com o menu lateral -->
+            <div class="w-[360px] border-r border-gray-800 px-8 py-6 flex items-center">
+                <div class="flex items-center gap-4">
+                    <img src="./logo.png" alt="DIV" class="h-12 w-12">
+                    <span class="text-2xl font-medium">Division Share Docs</span>
+                </div>
+            </div>
+            
+            <!-- Menu de navegação -->
+            <div class="px-8 py-6">
+                <nav class="flex gap-16 text-lg">
+                    <a href="#" class="text-blue-500 py-2">Getting Started</a>
+                    <a href="#" class="text-gray-400 hover:text-white py-2">User Documentation</a>
+                    <a href="#" class="text-gray-400 hover:text-white py-2">Developer Documentation</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegação da Documentação -->
+    <nav class="fixed left-0 top-[128px] h-[calc(100vh-128px)] w-[360px] bg-[#0B0F1A] border-r border-gray-800 overflow-y-auto">
+        <div class="py-10 px-8">
+            <div class="space-y-10">
+                <!-- Introduction -->
+                <div>
+                    <h3 class="text-base font-medium text-gray-400 uppercase tracking-wider mb-5">INTRODUCTION</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li><a href="#welcome" class="block text-gray-300 hover:text-white py-2">Welcome to Division Share</a></li>
+                        <li><a href="#mission" class="block text-gray-300 hover:text-white py-2">Mission and History</a></li>
+                        <li><a href="#concepts" class="block text-gray-300 hover:text-white py-2">Core Concepts</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h3 class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">PRODUCTS</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#rental" class="block text-gray-300 hover:text-white py-1">Rental Fund</a></li>
+                        <li><a href="#credit" class="block text-gray-300 hover:text-white py-1">Credit Fund</a></li>
+                        <li><a href="#precatorio" class="block text-gray-300 hover:text-white py-1">Precatorio Fund</a></li>
+                    </ul>
+                </div>
+
+                <!-- Technology -->
+                <div>
+                    <h3 class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">TECHNOLOGY</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#smart-contracts" class="block text-gray-300 hover:text-white py-1">Smart Contracts</a></li>
+                        <li><a href="#security" class="block text-gray-300 hover:text-white py-1">Security</a></li>
+                        <li><a href="#integrations" class="block text-gray-300 hover:text-white py-1">Integrations</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="ml-[360px] pt-[128px]">
+        <!-- Breadcrumb -->
+        <div class="border-b border-gray-800">
+            <div class="max-w-3xl mx-auto px-8 py-4">
+                <div class="flex items-center gap-2 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-white">Home</a>
+                    <span class="text-gray-600">›</span>
+                    <a href="#" class="text-gray-400 hover:text-white">Introduction</a>
+                    <span class="text-gray-600">›</span>
+                    <span class="text-blue-500">Welcome to Division Share</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto px-8 py-12">
+            <!-- Welcome Section -->
+            <section id="welcome" class="mb-16">
+                <h1 class="text-4xl font-bold mb-6">Welcome to Division Share</h1>
+                <div class="prose prose-invert max-w-none">
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        Division Share é uma plataforma pioneira de tokenização que transforma ativos do mundo real em tokens digitais, permitindo o fracionamento e a negociação de investimentos tradicionalmente ilíquidos. Nossa missão é democratizar o acesso a investimentos de alta qualidade, tornando-os mais acessíveis e transparentes.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6">Nossa Visão</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        Acreditamos que o futuro dos investimentos será tokenizado, permitindo maior liquidez, transparência e acessibilidade. A Division Share está construindo a infraestrutura necessária para conectar investidores a oportunidades de investimento antes restritas a grandes players do mercado.
+                    </p>
+
+                    <div class="bg-[#151B2B] rounded-lg p-8 mb-12">
+                        <h3 class="text-xl font-medium mb-6">Principais Diferenciais</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <span>Tokenização com respaldo jurídico e regulatório</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <span>Distribuição automática de rendimentos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <span>Registro imutável e transparente de todas as operações</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <span>Liquidez secundária através de nossa plataforma proprietária</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6">Produtos</h2>
+                    
+                    <h3 class="text-xl font-medium mt-8 mb-4">Division Rental Fund (DIV-RL-1)</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Fundo focado em contratos de aluguel tokenizados, oferecendo exposição ao mercado imobiliário com rendimentos mensais previsíveis. APY alvo de 12% ao ano, com distribuição automática dos rendimentos.
+                    </p>
+
+                    <h3 class="text-xl font-medium mt-8 mb-4">Division Credit Fund (DIV-CR-1)</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Fundo especializado em direitos creditórios de alta qualidade, com foco em recebíveis corporativos. APY alvo de 15.2%, combinando segurança e rentabilidade atrativa.
+                    </p>
+
+                    <h3 class="text-xl font-medium mt-8 mb-4">Division Precatorio Fund (DIV-PC-1)</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Fundo focado em precatórios federais, oferecendo exposição a ativos judiciais com alta previsibilidade. APY alvo de 18.5%, com gestão ativa da carteira.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6">Tecnologia</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        Nossa plataforma é construída sobre a blockchain Solana, escolhida por sua alta performance, baixos custos de transação e robusta infraestrutura DeFi. Utilizamos smart contracts auditados para garantir a segurança e transparência de todas as operações.
+                    </p>
+
+                    <div class="bg-[#151B2B] rounded-lg p-8 mb-12">
+                        <h3 class="text-xl font-medium mb-6">Infraestrutura Tecnológica</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <span>Smart contracts na Solana para tokenização e gestão de ativos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <span>Sistema proprietário de custódia e liquidação</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <span>Integração com wallets populares como Phantom e Solflare</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <span>Oracle descentralizado para precificação em tempo real</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6">Estrutura de Tokens</h2>
+                    <div class="bg-[#151B2B] rounded-lg p-8 mb-12">
+                        <h3 class="text-xl font-medium mb-6">Token de Governança (DIVSHARE)</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                            O DIVSHARE é o token principal da plataforma, representando governança e participação no projeto Division Share. Este token é essencial para o ecossistema, sendo constantemente valorizado através do modelo de taxas do protocolo.
+                        </p>
+                        
+                        <h3 class="text-xl font-medium mb-6">Subtokens</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <div>
+                                    <span class="font-medium">Supply Fixo e Prazo Determinado:</span>
+                                    <p class="text-gray-300 mt-1">Cada Subtoken possui quantidade limitada e data de vencimento vinculada ao ativo subjacente.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <div>
+                                    <span class="font-medium">Precificação Dinâmica:</span>
+                                    <p class="text-gray-300 mt-1">Valor ajustado em tempo real considerando taxa do crédito, impostos futuros e variação cambial aplicável.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#3A64D8] mr-3">•</span>
+                                <div>
+                                    <span class="font-medium">Ciclo de Negociação:</span>
+                                    <p class="text-gray-300 mt-1">1. Open Sale (50-60% desconto) → 2. Pools de Liquidez → 3. Claim do Valor Final</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6">Estrutura Legal e Operacional</h2>
+                    <div class="prose prose-invert max-w-none">
+                        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                            A Division Share implementa uma estrutura robusta e transparente para garantir a segurança jurídica e operacional de todos os ativos tokenizados:
+                        </p>
+
+                        <div class="bg-[#151B2B] rounded-lg p-8 mb-12">
+                            <h3 class="text-xl font-medium mb-6">Garantias Legais</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="text-[#3A64D8] mr-3">•</span>
+                                    <div>
+                                        <span class="font-medium">Documentação Cartorial:</span>
+                                        <p class="text-gray-300 mt-1">Todos os Subtokens são lastreados em documentos legais verificáveis via QR code ou link direto.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#3A64D8] mr-3">•</span>
+                                    <div>
+                                        <span class="font-medium">SPE Dedicada:</span>
+                                        <p class="text-gray-300 mt-1">Criação de Sociedade de Propósito Específico para cada operação, com a Division Share como gestora.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#3A64D8] mr-3">•</span>
+                                    <div>
+                                        <span class="font-medium">Rastreabilidade:</span>
+                                        <p class="text-gray-300 mt-1">Chave do token SPL registrada diretamente no título da dívida.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h2 class="text-2xl font-bold mt-12 mb-6">Modelo Econômico</h2>
+                        <div class="bg-[#151B2B] rounded-lg p-8 mb-12">
+                            <h3 class="text-xl font-medium mb-6">Processo de Claim e Taxas</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="text-[#3A64D8] mr-3">•</span>
+                                    <div>
+                                        <span class="font-medium">Liquidação:</span>
+                                        <p class="text-gray-300 mt-1">Após quitação da dívida, investidores podem trocar Subtokens por USDC através do processo de Claim.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#3A64D8] mr-3">•</span>
+                                    <div>
+                                        <span class="font-medium">Taxa de Gestão:</span>
+                                        <p class="text-gray-300 mt-1">6% sobre cada operação com Subtokens.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#3A64D8] mr-3">•</span>
+                                    <div>
+                                        <span class="font-medium">Fortalecimento do Token:</span>
+                                        <p class="text-gray-300 mt-1">50% das taxas são direcionadas para compra do token DIVSHARE no mercado, gerando pressão constante de compra.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Continua com mais seções... -->
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html> 

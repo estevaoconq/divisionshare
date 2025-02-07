@@ -1,14 +1,83 @@
-<!-- No card de Overview -->
-<div class="flex flex-col gap-2">
-    <div class="flex justify-between">
-        <span class="text-gray-400">Initial Debt Value</span>
-        <span class="text-xl">R$ 5,750,000.00</span>
-    </div>
-    <div class="flex justify-between items-center">
-        <span class="text-gray-400">USD Value</span>
-        <div class="flex flex-col items-end">
-            <span>$1,000,000.00</span>
-            <span class="text-sm text-gray-400">Initial exchange rate: R$ 5.75/USD</span>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division Credit 1 | Division Share</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space_Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#0B0F1A] text-white font-['Space_Grotesk']">
+    <!-- Sidebar - esconder em mobile -->
+    <aside class="fixed left-0 top-0 h-screen w-[300px] bg-[#151B2B] hidden md:block">
+        <!-- Container da Animação -->
+        <div class="w-full h-[300px] relative mt-8">
+            <iframe 
+                src="./solana-animation.html" 
+                class="w-full h-full absolute inset-0"
+                frameborder="0"
+                scrolling="no"
+                allowtransparency="true"
+                style="pointer-events: auto; background: transparent;"
+            ></iframe>
         </div>
-    </div>
-</div> 
+
+        <!-- Menu de Navegação -->
+        <div class="p-4">
+            <nav class="space-y-4">
+                <a href="/" class="flex items-center space-x-3 text-yellow-500 px-4 py-2 rounded-lg bg-[#2A3447]">
+                    <span>💰</span>
+                    <span>Buy Tokens</span>
+                </a>
+                <!-- ... resto do menu ... -->
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-[300px] p-7">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-4">
+                <img src="./logo.png" alt="DIV" class="h-8 w-8">
+                <h1 class="text-2xl font-medium">Division Credit 1</h1>
+            </div>
+            <button id="connect-wallet" class="bg-gradient-to-r from-[#EAB308] to-[#CA8A04] px-8 py-3 rounded-lg text-white font-medium hover:opacity-90 transition-opacity">
+                Connect Wallet
+            </button>
+        </div>
+
+        <!-- Card de Overview -->
+        <div class="bg-[#151B2B] rounded-lg p-6">
+            <h2 class="text-xl mb-6">Overview</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between">
+                    <span class="text-gray-400">Asset Type</span>
+                    <span>Credit Instrument</span>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Initial Debt Value</span>
+                        <span class="text-xl">R$ 5,750,000.00</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">USD Value</span>
+                        <div class="flex flex-col items-end">
+                            <span>$1,000,000.00</span>
+                            <span class="text-sm text-gray-400">Initial exchange rate: R$ 5.75/USD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ... resto do Overview ... -->
+            </div>
+        </div>
+
+        <!-- ... resto do conteúdo ... -->
+    </main>
+
+    <script src="./wallet.js"></script>
+    <!-- ... outros scripts ... -->
+</body>
+</html> 

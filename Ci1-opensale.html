@@ -78,50 +78,39 @@
                 <!-- Card de Valor do Ativo -->
                 <div class="bg-[#151B2B] rounded-lg p-6">
                     <div class="grid grid-cols-2 gap-8">
-                        <!-- Valor Atual -->
                         <div>
-                            <div class="text-gray-400 mb-2">Current Asset Value (USD)</div>
-                            <div class="text-3xl font-bold" id="current-value">$1,000,000.00</div>
-                            <div class="flex flex-col gap-2 mt-2">
-                                <div class="flex items-center gap-2">
-                                    <span class="px-2 py-1 bg-[#1F2B45] rounded text-sm text-blue-400">
-                                        Issue Date: Sep 1, 2024
-                                    </span>
-                                    <span class="text-sm text-gray-400">
-                                        (12% p.a. correction)
-                                    </span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm" id="current-exchange-rate">
-                                    Current exchange rate: 
-                                    <span class="text-gray-400">
-                                        Loading...
-                                    </span>
-                                </div>
+                            <div class="text-gray-400">Current Asset Value (USD)</div>
+                            <div class="text-4xl font-bold mb-4" id="current-asset-value">$1,043,202.65</div>
+                            
+                            <div class="text-blue-400" id="issue-date">Issue Date: 01/01/2025</div>
+                            <div class="text-gray-400">(12% p.a. correction)</div>
+                            
+                            <div class="mt-2">
+                                <span class="text-gray-400">Current exchange rate: </span>
+                                <span id="current-rate">R$ 5.75/USD</span>
                             </div>
-                            <div class="flex items-center gap-2 mt-2">
-                                <span class="text-sm text-gray-400">Time elapsed:</span>
-                                <span class="px-2 py-1 bg-[#1F2B45] rounded text-sm text-yellow-400" id="days-elapsed">
-                                    5 days
-                                </span>
+                            
+                            <div class="mt-2">
+                                <span class="text-gray-400">Time elapsed: </span>
+                                <span class="text-yellow-400" id="days-elapsed">24 days</span>
                             </div>
-                            <div class="text-xs text-gray-500 mt-2">
+                            
+                            <div class="text-gray-500 text-sm mt-4">
                                 Value updated in real-time from issue date
                             </div>
                         </div>
-                        <!-- Valor por Token -->
+
                         <div>
-                            <div class="text-gray-400 mb-2">Future Settlement Value / Token</div>
-                            <div class="text-3xl font-bold" id="token-value">$1.00</div>
-                            <div class="text-sm text-gray-400 mt-1">At maturity date</div>
-                            <div class="text-xs text-gray-500 mt-2">
-                                Total Supply: 1,000,000 tokens
-                            </div>
+                            <div class="text-gray-400">Future Settlement Value / Token</div>
+                            <div class="text-4xl font-bold mb-4">$1.04</div>
+                            <div class="text-gray-400">At maturity date</div>
+                            <div class="text-gray-400 mt-2">Total Supply: <span id="total-supply">982,906</span> tokens</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Ordens de Venda -->
-                <div class="bg-[#151B2B] rounded-lg p-6">
+                <div id="open-sale-section" class="bg-[#151B2B] rounded-lg p-6">
                     <div class="flex justify-between items-center mb-6">
                         <div class="text-xl">Open Sale Orders</div>
                         <div class="text-sm text-gray-400">Available tokens from Treasury</div>
@@ -136,19 +125,22 @@
                     </div>
                     
                     <div class="space-y-2">
-                        <!-- Ordem 1 -->
+                        <!-- Ordem 1 (Ativa) -->
                         <div class="grid grid-cols-4 items-center p-4 bg-[#1F2B45] rounded-lg">
                             <div class="flex items-center gap-2">
                                 <img src="./logo.png" alt="DIV" class="h-8 w-8">
                                 <div class="flex flex-col">
                                     <span>DVCR1</span>
-                                    <span class="text-xs text-green-500">50% desconto</span>
+                                    <div class="text-xs text-green-500">50% discount</div>
                                 </div>
                             </div>
                             <div class="text-xl font-bold">$0.50</div>
-                            <div class="text-right text-xl">100,000</div>
+                            <div class="text-right text-xl">135,149</div>
                             <div class="flex items-center justify-end gap-4">
-                                <span class="text-yellow-500 text-sm whitespace-nowrap">Expira em 30 dias</span>
+                                <div class="flex flex-col items-end">
+                                    <span class="text-yellow-500 text-sm">Expires on</span>
+                                    <span class="text-yellow-500 text-sm">01/02/2025</span>
+                                </div>
                                 <button class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition-colors whitespace-nowrap">
                                     Buy Now
                                 </button>
@@ -161,13 +153,13 @@
                                 <img src="./logo.png" alt="DIV" class="h-8 w-8">
                                 <div class="flex flex-col">
                                     <span>DVCR1</span>
-                                    <span class="text-xs text-blue-500">45% desconto</span>
+                                    <div class="text-xs text-blue-500">45% discount</div>
                                 </div>
                             </div>
                             <div class="text-xl font-bold">$0.55</div>
-                            <div class="text-right text-xl">150,000</div>
-                            <div class="text-right">
-                                <span class="text-gray-400">Disponível em 30 dias</span>
+                            <div class="text-right text-xl">189,209</div>
+                            <div class="flex items-center justify-end gap-4">
+                                <!-- Este div será atualizado pelo JavaScript -->
                             </div>
                         </div>
 
@@ -181,17 +173,61 @@
                                 </div>
                             </div>
                             <div class="text-xl font-bold">$0.60</div>
-                            <div class="text-right text-xl">200,000</div>
-                            <div class="text-right">
-                                <span class="text-gray-400">Disponível em 60 dias</span>
+                            <div class="text-right text-xl">216,238</div>
+                            <div class="flex items-center justify-end gap-4">
+                                <div class="flex flex-col items-end">
+                                    <span class="text-yellow-500 text-sm">Expires on</span>
+                                    <span class="text-yellow-500 text-sm">03/04/2025</span>
+                                </div>
+                                <button class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition-colors whitespace-nowrap">
+                                    Buy Now
+                                </button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEX Trading Section -->
+                <div id="dex-section" class="bg-[#151B2B] rounded-lg p-8">
+                    <div class="grid grid-cols-2 gap-8 items-center">
+                        <!-- Info à esquerda -->
+                        <div class="text-gray-400">
+                            <div class="text-green-500 text-lg mb-3">
+                                Trading Available on DEX Pools
+                            </div>
+                            <div class="space-y-2">
+                                <div>• Trade tokens with market liquidity</div>
+                                <div>• Available on multiple DEX platforms</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Logos à direita com links -->
+                        <div class="flex justify-end gap-12">
+                            <a href="https://raydium.io" target="_blank" rel="noopener noreferrer" 
+                               class="hover:opacity-80 transition-opacity">
+                                <img src="./raydium.png" alt="Raydium" class="h-10">
+                            </a>
+                            <a href="https://www.orca.so" target="_blank" rel="noopener noreferrer"
+                               class="hover:opacity-80 transition-opacity">
+                                <img src="./orca.png" alt="Orca" class="h-10">
+                            </a>
+                            <a href="https://jup.ag" target="_blank" rel="noopener noreferrer"
+                               class="hover:opacity-80 transition-opacity">
+                                <img src="./jupiter.png" alt="Jupiter" class="h-10">
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Depois do card de Open Sale Orders -->
                 <div class="bg-[#151B2B] rounded-lg p-6 mt-8">
-                    <h2 class="text-xl mb-6">Histórico de Preços</h2>
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl">Price History</h2>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400">Current upside</span>
+                            <span class="text-2xl font-bold text-green-500" id="current-upside"></span>
+                        </div>
+                    </div>
                     
                     <!-- Container do Gráfico -->
                     <div class="relative h-[300px]">
@@ -312,87 +348,109 @@
                 <div class="bg-[#151B2B] rounded-lg p-6">
                     <h2 class="text-xl mb-6">Overview</h2>
                     <div class="space-y-4">
+                        <!-- 1. Asset Type -->
                         <div class="flex justify-between">
-                            <span class="text-gray-400">Asset Type</span>
+                            <span class="text-[#8899AC]">Asset Type</span>
                             <span>Credit Instrument</span>
                         </div>
-                        
-                        <div class="flex flex-col gap-2">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">Initial Debt Value</span>
-                                <span class="text-xl">R$ 5,750,000.00</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-400">Inicial USD Value</span>
-                                <div class="flex flex-col items-end">
-                                    <span>$1,000,000.00</span>
-                                    <span class="text-sm text-gray-400">Initial exchange rate: R$ 5.75/USD</span>
-                                </div>
+
+                        <!-- 2. Initial Debt Value -->
+                        <div class="flex justify-between">
+                            <span class="text-[#8899AC]">Initial Debt Value</span>
+                            <span>R$ 5,750,000.00</span>
+                        </div>
+
+                        <!-- 3. Initial USD Value -->
+                        <div class="flex justify-between">
+                            <span class="text-[#8899AC]">Initial USD Value</span>
+                            <div class="text-right">
+                                <div>$982,905.98</div>
+                                <div class="text-sm text-[#8899AC]">Initial exchange rate: R$ 5.85/USD</div>
                             </div>
                         </div>
 
+                        <!-- 4. Token Supply (novo) -->
                         <div class="flex justify-between">
-                            <span class="text-gray-400">Annual Adjustment</span>
+                            <span class="text-[#8899AC]">Token Supply</span>
+                            <span>982,906 DVCR1</span>
+                        </div>
+
+                        <!-- 5. Annual Adjustment -->
+                        <div class="flex justify-between">
+                            <span class="text-[#8899AC]">Annual Adjustment</span>
                             <span>12% p.a.</span>
                         </div>
 
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Settlement Currency</span>
+                        <!-- 6. Settlement Currency -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[#8899AC]">Settlement Currency</span>
                             <div class="flex items-center gap-2">
-                                <span class="px-2 py-1 bg-[#1F2B45] rounded text-sm">BRL</span>
-                                <span class="text-sm text-gray-400">Debt will be paid in Brazilian Real</span>
+                                <span class="bg-blue-900 px-2 py-0.5 rounded text-xs">BRL</span>
+                                <span>Debt will be paid in Brazilian Real</span>
                             </div>
                         </div>
 
-                        <div class="pt-4 border-t border-gray-800">
-                            <div class="flex justify-between mb-3">
-                                <span class="text-gray-400">SPE</span>
-                                <div class="flex items-center gap-2">
-                                    <span>Division Credit SPE 01</span>
-                                    <a href="#" class="text-blue-400 hover:text-blue-300 text-sm">View PDF →</a>
+                        <!-- Linha divisória -->
+                        <div class="border-t border-gray-800"></div>
+
+                        <!-- 7. SPE -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[#8899AC]">SPE</span>
+                            <div class="flex items-center gap-2">
+                                <span>Division Credit SPE 01</span>
+                                <a href="#" class="text-blue-400 hover:text-blue-300">View PDF →</a>
+                            </div>
+                        </div>
+
+                        <!-- Linha divisória -->
+                        <div class="border-t border-gray-800"></div>
+
+                        <!-- 8. Token Address -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-[#8899AC]">Token Address</span>
+                            <div class="flex items-center gap-2">
+                                <span class="font-mono bg-[#1F2B45] px-2 py-1 rounded">DA5JD...ASDA</span>
+                                <button class="p-1 hover:text-blue-400">📋</button>
+                                <button class="p-1 hover:text-blue-400">↗</button>
+                            </div>
+                        </div>
+
+                        <!-- 9. Token Distribution (novo) -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-[#8899AC]">Token Distribution</span>
+                            </div>
+                            <div class="pl-4 space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-[#8899AC]">• For Open Sales</span>
+                                    <div class="text-right">
+                                        <div>540,598 DVCR1</div>
+                                        <div class="text-xs text-green-500">50-40% discount</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#8899AC]">• For Pools</span>
+                                    <div class="text-right">
+                                        <div>442,308 DVCR1</div>
+                                        <div class="text-xs text-blue-400">from 35% discount</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="pt-4 border-t border-gray-800">
-                            <div class="flex justify-between mb-3">
-                                <span class="text-gray-400">Token Address</span>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-sm bg-[#1F2B45] px-2 py-1 rounded">DASJD...ASDA</span>
-                                    <button class="text-gray-400 hover:text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                        </svg>
-                                    </button>
-                                    <a href="https://solscan.io/token/..." target="_blank" class="text-blue-400 hover:text-blue-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
+                        <!-- Linha divisória -->
+                        <div class="border-t border-gray-800"></div>
+
+                        <!-- 10. Location -->
+                        <div class="flex justify-between">
+                            <span class="text-[#8899AC]">Location</span>
+                            <span>Rio de Janeiro, BR</span>
                         </div>
 
-                        <div class="pt-4 border-t border-gray-800">
-                            <div class="flex justify-between mb-3">
-                                <span class="text-gray-400">Initial Discount</span>
-                                <span class="text-green-500">50%</span>
-                            </div>
-                            <div class="flex justify-between mb-3">
-                                <span class="text-gray-400">Final Discount</span>
-                                <span class="text-green-500">60%</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-gray-800">
-                            <div class="flex justify-between mb-3">
-                                <span class="text-gray-400">Location</span>
-                                <span>Rio de Janeiro, BR</span>
-                            </div>
-                            <div class="flex justify-between mb-3">
-                                <span class="text-gray-400">Smart Contract</span>
-                                <a href="#" class="text-blue-400 hover:text-blue-300">View on Explorer →</a>
-                            </div>
+                        <!-- 11. Smart Contract -->
+                        <div class="flex justify-between">
+                            <span class="text-[#8899AC]">Smart Contract</span>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">View on Explorer →</a>
                         </div>
                     </div>
                 </div>
@@ -401,178 +459,559 @@
     </main>
 
     <script>
-    // Função para atualizar o valor do ativo em tempo real
-    function updateAssetValue() {
-        const initialValueBRL = 5750000; // Valor inicial em BRL
-        const initialUSDRate = 5.75; // Taxa de câmbio inicial (BRL/USD)
-        const initialValueUSD = initialValueBRL / initialUSDRate; // $1,000,000.00
-        const supply = 1000000; // Total supply de tokens
-        const annualRate = 0.12; // 12% ao ano
-        const issueDate = new Date('2024-09-01'); // Atualizado para 1 de setembro de 2024
-        
-        async function getCurrentUSDRate() {
-            try {
-                // Usando a API do Exchange Rates Data
-                const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-                const data = await response.json();
-                return data.rates.BRL;
-            } catch (error) {
-                console.error('Erro ao buscar taxa de câmbio:', error);
-                return 5.85; // Valor fallback em caso de erro
-            }
-        }
-        
-        async function updateValues() {
-            const now = new Date();
-            const elapsedMilliseconds = now - issueDate;
-            const elapsedDays = Math.floor(elapsedMilliseconds / (1000 * 60 * 60 * 24));
-            const elapsedYears = elapsedDays / 365; // Converter dias em anos para o cálculo de juros
-            
-            // Atualiza dias decorridos
-            document.getElementById('days-elapsed').textContent = `${elapsedDays} days`;
-            
-            // Obter taxa de câmbio atual
-            const currentUSDRate = await getCurrentUSDRate();
-            
-            // Cálculo do valor atual em BRL
-            const initialDebtBRL = 5750000; // R$ 5.750.000,00
-            const monetaryAdjustment = 1 + (annualRate * elapsedYears); // 12% a.a.
-            const currentValueBRL = initialDebtBRL * monetaryAdjustment;
-            
-            // Conversão para USD usando a taxa atual
-            const currentValueUSD = currentValueBRL / currentUSDRate;
-            const tokenValue = currentValueUSD / supply;
+    // Configuração global de datas
+    const CONFIG = {
+        currentDate: new Date('2025-02-08'),    // Data atual (08/02/2025)
+        issueDate: new Date('2025-01-01'),      // Data de emissão
+        phase1End: new Date('2025-02-01'),      // Fim da fase 1
+        phase2Start: new Date('2025-02-02'),    // Início da fase 2
+        phase2End: new Date('2025-03-02'),      // Fim da fase 2
+        phase3Start: new Date('2025-03-03'),    // Início da fase 3
+        phase3End: new Date('2025-04-03'),      // Fim da fase 3
+        poolsDate: new Date('2025-04-04')       // Data de trading em pools
+    };
 
-            // Atualiza o valor total do ativo
-            document.getElementById('current-value').textContent = 
-                `$${currentValueUSD.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-            
-            // Atualiza o valor por token
-            document.getElementById('token-value').textContent = 
-                `$${tokenValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-            
-            // Atualiza a taxa de câmbio com indicador visual
-            const rateColor = currentUSDRate > initialUSDRate ? 'text-red-500' : 'text-green-500';
-            document.getElementById('current-exchange-rate').innerHTML = `
-                Current exchange rate: 
-                <span class="${rateColor}">
-                    R$ ${currentUSDRate.toFixed(2)}/USD
-                </span>
-                <span class="text-xs text-gray-400 ml-2">
-                    (Initial: R$ ${initialUSDRate.toFixed(2)}/USD)
-                </span>
-            `;
-        }
+    // Função única para atualizar toda a interface
+    function updateAllInterface() {
+        // 1. Atualizar data de emissão
+        document.getElementById('issue-date').textContent = 
+            `Issue Date: 01/01/2025`; // Formato fixo da data
+        
+        // 2. Atualizar dias decorridos
+        const diffTime = Math.abs(CONFIG.currentDate - CONFIG.issueDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        document.getElementById('days-elapsed').textContent = `${diffDays} days`;
+        
+        // 3. Atualizar fases de venda
+        const orderElements = document.querySelectorAll('.grid.grid-cols-4.items-center');
+        
+        // Primeira Fase (expirada)
+        const phase1Element = orderElements[0];
+        phase1Element.classList.add('opacity-75');
+        phase1Element.querySelector('.flex.items-center.justify-end').innerHTML = `
+            <span class="text-gray-400">Expired</span>
+        `;
+        
+        // Segunda Fase (ativa)
+        const phase2Element = orderElements[1];
+        phase2Element.classList.remove('opacity-75');
+        const phase2Status = phase2Element.querySelector('.flex.items-center.justify-end');
+        phase2Status.innerHTML = `
+            <div class="flex items-center justify-end gap-4">
+                <div class="flex flex-col items-end">
+                    <span class="text-yellow-500 text-sm">Expires on</span>
+                    <span class="text-yellow-500 text-sm">02/03/2025</span>
+                </div>
+                <button class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition-colors whitespace-nowrap">
+                    Buy Now
+                </button>
+            </div>
+        `;
+        
+        // Terceira Fase (futura)
+        const phase3Element = orderElements[2];
+        phase3Element.classList.add('opacity-75');
+        const phase3Status = phase3Element.querySelector('.flex.items-center.justify-end');
+        phase3Status.innerHTML = `
+            <span class="text-gray-400">Available on 03/03/2025</span>
+        `;
 
-        // Atualiza a cada segundo
-        setInterval(updateValues, 1000);
+        // Atualizar status do Trading
+        const tradingSection = document.querySelector('.text-green-500.text-lg');
+        tradingSection.innerHTML = `
+            <div class="text-green-500 text-lg mb-3">
+                Trading Available on DEX Pools
+            </div>
+        `;
+
+        // Adicionar destaque baseado na data atual
+        const openSaleSection = document.getElementById('open-sale-section');
+        const dexSection = document.getElementById('dex-section');
+
+        if (CONFIG.currentDate < CONFIG.poolsDate) {
+            // Ainda estamos em período de Open Sale
+            openSaleSection.classList.add('border-[2px]', 'border-[rgba(58,100,216,0.3)]');
+            dexSection.classList.remove('border-[1px]', 'border-[rgba(245,158,11,0.3)]');
+        } else {
+            // Período de DEX Trading
+            openSaleSection.classList.remove('border-[2px]', 'border-[rgba(58,100,216,0.3)]');
+            dexSection.classList.add('border-[1px]', 'border-[rgba(245,158,11,0.3)]');
+        }
     }
 
-    // Iniciar atualizações
+    // Remover todos os outros event listeners e manter apenas este
     document.addEventListener('DOMContentLoaded', () => {
-        updateAssetValue();
+        updateAllInterface();
     });
     </script>
 
     <!-- Adicionar antes do </body> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Configuração do gráfico de preços
+        // Função generateDailyLabels
+        function generateDailyLabels(startDate) {
+            const labels = [];
+            const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+            
+            const start = new Date(startDate);
+            const today = CONFIG.currentDate; // Usar a data simulada
+            
+            for (let date = new Date(start); date <= today; date.setDate(date.getDate() + 1)) {
+                const day = date.getDate();
+                const month = months[date.getMonth()];
+                labels.push(`${day} ${month}`);
+            }
+            
+            return labels;
+        }
+
+        // Função para calcular diferença de dias
+        function getDaysDifference(endDate) {
+            const end = new Date(endDate);
+            const start = CONFIG.issueDate;
+            return Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+        }
+
+        // Função para gerar valores de liquidação
+        function generateSettlementValues(endDate) {
+            const days = getDaysDifference(endDate);
+            const values = [];
+            const baseValue = 1.00; // Valor base sempre começa em $1.00
+            const annualRate = 0.12; // 12% a.a.
+            
+            for (let i = 0; i < days; i++) {
+                // Calcular a valorização proporcional ao tempo decorrido
+                const yearFraction = i / 365; // Fração do ano decorrido
+                const correction = 1 + (annualRate * yearFraction); // Fator de correção
+                const value = baseValue * correction;
+                values.push(value);
+            }
+            
+            return values;
+        }
+
+        // Função para gerar valores do Token Price
+        function generateTokenPriceValues(endDate) {
+            const days = getDaysDifference(endDate);
+            const values = [];
+            
+            for (let i = 0; i < days; i++) {
+                const currentDate = new Date(CONFIG.issueDate);
+                currentDate.setDate(currentDate.getDate() + i);
+                
+                // Fase 1: $0.50 até 01/02/2025
+                if (currentDate <= CONFIG.phase1End) {
+                    values.push(0.50);
+                }
+                // Fase 2: $0.55 de 02/02/2025 até 02/03/2025
+                else if (currentDate <= CONFIG.phase2End) {
+                    values.push(0.55);
+                }
+                // Fase 3: $0.60 de 03/03/2025 até 03/04/2025
+                else if (currentDate <= CONFIG.phase3End) {
+                    values.push(0.60);
+                }
+                // Após 04/04/2025: mantém $0.60
+                else {
+                    values.push(0.60);
+                }
+            }
+            
+            return values;
+        }
+
+        // Configuração do gráfico
         const ctx = document.getElementById('priceChart').getContext('2d');
         const priceChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Set', 'Out', 'Nov', 'Dez', 'Jan', 'Fev'],
+                labels: generateDailyLabels('2025-01-01'),
                 datasets: [
                     {
                         label: 'Token Price (USD)',
-                        data: [0.50, 0.50, 0.55, 0.60, null, null], // Histórico até dezembro, sem dados futuros
+                        data: generateTokenPriceValues('2025-04-05'),
                         borderColor: '#3A64D8',
                         backgroundColor: 'rgba(58, 100, 216, 0.1)',
+                        borderWidth: 1.5,
                         fill: false,
-                        tension: 0
+                        tension: 0,
+                        pointRadius: 0,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#3A64D8',
+                        pointHoverBackgroundColor: '#3A64D8',
+                        pointBorderColor: '#3A64D8',
+                        pointHoverBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverBorderWidth: 2,
+                        pointHitRadius: 10
                     },
                     {
                         label: 'Future Settlement Value',
-                        data: [0.99, 1.00, 1.01, 1.02, 1.03, 1.04],
+                        data: generateSettlementValues('2025-04-05'),
                         borderColor: '#22C55E',
                         backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                        borderWidth: 1.5,
                         fill: false,
-                        tension: 0
+                        tension: 0.1,
+                        pointRadius: 0,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#22C55E',
+                        pointHoverBackgroundColor: '#22C55E',
+                        pointBorderColor: '#22C55E',
+                        pointHoverBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverBorderWidth: 2,
+                        pointHitRadius: 10
                     }
                 ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
                 plugins: {
                     legend: {
                         display: true,
                         position: 'top',
                         labels: {
-                            color: '#9CA3AF'
+                            color: '#9CA3AF',
+                            padding: 20,
+                            font: { size: 14 }
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        mode: 'index',
+                        intersect: false,
+                        backgroundColor: '#1F2937',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderColor: '#374151',
+                        borderWidth: 1,
+                        padding: 12,
+                        cornerRadius: 8,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        },
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                return tooltipItems[0].label;
+                            },
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('en-US', { 
+                                        style: 'currency', 
+                                        currency: 'USD',
+                                        minimumFractionDigits: 4,
+                                        maximumFractionDigits: 4
+                                    }).format(context.parsed.y);
+                                }
+                                return label;
+                            }
                         }
                     }
                 },
                 scales: {
                     y: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
                         ticks: {
                             color: '#9CA3AF',
-                            callback: function(value) {
-                                return '$' + value.toFixed(2);
-                            }
+                            callback: value => '$' + value.toFixed(2),
+                            font: { size: 12 }
                         },
                         min: 0.45,
                         max: 1.10
                     },
                     x: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
                         ticks: {
-                            color: '#9CA3AF'
+                            color: '#9CA3AF',
+                            maxRotation: 45,
+                            minRotation: 45,
+                            font: { size: 12 },
+                            maxTicksLimit: 8
                         }
                     }
+                },
+                hover: {
+                    mode: 'index',
+                    intersect: false
                 }
             }
         });
+    </script>
 
-        // Função para atualizar o Future Settlement Value no gráfico
-        async function updateFutureSettlementValue() {
-            const now = new Date();
-            const dates = priceChart.data.labels.map((label, index) => {
-                const date = new Date(now);
-                date.setMonth(date.getMonth() + index - 2); // -2 para começar 2 meses atrás
-                return date;
-            });
+    <!-- Função para calcular a distribuição dos tokens para Open Sales -->
+    <script>
+    function calculateOpenSalesDistribution(initialDebtValueBRL, initialUSDRate) {
+        // Cálculos base
+        const initialUSDValue = initialDebtValueBRL / initialUSDRate;
+        const tokenSupply = Math.floor(initialUSDValue);
+        const forOpenSales = Math.floor(tokenSupply * 0.55);
 
-            // Obter taxa de câmbio atual
-            const currentUSDRate = await getCurrentUSDRate();
+        // Distribuição das ordens
+        return {
+            price050: Math.floor(forOpenSales * 0.25), // 25% a $0.50
+            price055: Math.floor(forOpenSales * 0.35), // 35% a $0.55
+            price060: Math.floor(forOpenSales * 0.40)  // 40% a $0.60
+        };
+    }
 
-            // Linha do preço fixo ($0.50)
-            priceChart.data.datasets[0].data = Array(6).fill(0.50);
+    // Exemplo de uso:
+    const distribution = calculateOpenSalesDistribution(5750000, 5.85);
+    console.log(distribution);
+    /* Resultado:
+    {
+        price050: 135149,  // 25% dos tokens para Open Sales
+        price055: 189209,  // 35% dos tokens para Open Sales
+        price060: 216240   // 40% dos tokens para Open Sales
+    }
+    */
+    </script>
 
-            // Linha do Future Settlement Value
-            const newData = dates.map(date => {
-                const elapsedYears = (date - issueDate) / (1000 * 60 * 60 * 24 * 365);
-                const monetaryAdjustment = 1 + (annualRate * elapsedYears);
-                return (initialValueBRL * monetaryAdjustment / currentUSDRate) / supply;
-            });
+    <!-- Função para buscar a cotação PTAX do dólar -->
+    <script>
+    async function getCurrentUSDRate() {
+        try {
+            // Formatar a data atual no formato requerido pela API (MM-DD-YYYY)
+            const today = new Date();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const year = today.getFullYear();
+            const formattedDate = `${month}-${day}-${year}`;
 
-            priceChart.data.datasets[1].data = newData;
-            priceChart.update();
+            // API PTAX do Banco Central
+            const url = `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='${formattedDate}'&$top=1&$format=json`;
+            
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            // Retorna a cotação de venda PTAX
+            return data.value[0].cotacaoVenda;
+        } catch (error) {
+            console.error('Erro ao buscar cotação PTAX:', error);
+            return 5.75; // Valor fallback atualizado para a cotação atual
         }
+    }
 
-        // Atualizar o gráfico a cada 5 segundos
-        setInterval(async () => {
-            await updateFutureSettlementValue();
-        }, 5000);
+    // Atualizar a interface com a nova cotação
+    async function updateExchangeRate() {
+        const currentRate = await getCurrentUSDRate();
+        const rateElement = document.querySelector('#current-rate');
+        if (rateElement) {
+            rateElement.textContent = `R$ ${currentRate.toFixed(2)}/USD`;
+        }
+    }
 
-        // Primeira atualização imediata
-        updateFutureSettlementValue();
+    // Atualizar a cada 30 minutos (PTAX é atualizada 4x ao dia)
+    setInterval(updateExchangeRate, 30 * 60 * 1000);
+
+    // Primeira atualização ao carregar a página
+    document.addEventListener('DOMContentLoaded', updateExchangeRate);
+    </script>
+
+    <!-- Função para calcular todos os valores do token -->
+    <script>
+    function calculateTokenValues(initialDebtBRL, initialUSDRate) {
+        // Objeto para armazenar todos os valores calculados
+        const calculations = {
+            // 1 e 2. Valores iniciais
+            initialDebtBRL: initialDebtBRL,
+            initialUSDRate: initialUSDRate,
+            
+            // 3. Initial USD Value
+            initialUSDValue: initialDebtBRL / initialUSDRate,
+            
+            // 4. Token Supply (igual ao Initial USD Value, arredondado para baixo)
+            tokenSupply: Math.floor(initialDebtBRL / initialUSDRate),
+            
+            // 5. Distribuição do Supply
+            distribution: {
+                forOpenSales: 0, // será calculado
+                forPools: 0      // será calculado
+            },
+            
+            // 6. Distribuição das Open Sales Orders
+            openSalesOrders: {
+                price050: 0, // será calculado
+                price055: 0, // será calculado
+                price060: 0  // será calculado
+            }
+        };
+        
+        // Calcular distribuição do supply
+        calculations.distribution.forOpenSales = Math.floor(calculations.tokenSupply * 0.55);
+        calculations.distribution.forPools = Math.floor(calculations.tokenSupply * 0.45);
+        
+        // Calcular distribuição das ordens
+        calculations.openSalesOrders.price050 = Math.floor(calculations.distribution.forOpenSales * 0.25);
+        calculations.openSalesOrders.price055 = Math.floor(calculations.distribution.forOpenSales * 0.35);
+        calculations.openSalesOrders.price060 = Math.floor(calculations.distribution.forOpenSales * 0.40);
+        
+        return calculations;
+    }
+
+    // Função para atualizar a interface com os valores calculados
+    function updateInterface(values) {
+        // Atualizar valores nas Open Sales Orders
+        const orderElements = document.querySelectorAll('.grid.grid-cols-4.items-center');
+        if (orderElements.length >= 3) {
+            // Ordem 1 ($0.50)
+            orderElements[0].querySelector('.text-right.text-xl').textContent = values.openSalesOrders.price050.toLocaleString();
+            
+            // Ordem 2 ($0.55)
+            orderElements[1].querySelector('.text-right.text-xl').textContent = values.openSalesOrders.price055.toLocaleString();
+            
+            // Ordem 3 ($0.60)
+            orderElements[2].querySelector('.text-right.text-xl').textContent = values.openSalesOrders.price060.toLocaleString();
+        }
+    }
+
+    // Exemplo de uso
+    document.addEventListener('DOMContentLoaded', () => {
+        const values = calculateTokenValues(5750000, 5.85);
+        console.log('Valores calculados:', values);
+        /* Resultado esperado:
+        {
+            initialDebtBRL: 5750000,
+            initialUSDRate: 5.85,
+            initialUSDValue: 982905.98,
+            tokenSupply: 982905,
+            distribution: {
+                forOpenSales: 540597, // 55% do supply
+                forPools: 442308      // 45% do supply
+            },
+            openSalesOrders: {
+                price050: 135149, // 25% do forOpenSales
+                price055: 189209, // 35% do forOpenSales
+                price060: 216239  // 40% do forOpenSales
+            }
+        }
+        */
+        
+        updateInterface(values);
+    });
+    </script>
+
+    <script>
+    function updateTotalSupply(initialDebtBRL, initialUSDRate) {
+        const tokenSupply = Math.floor(initialDebtBRL / initialUSDRate);
+        document.getElementById('total-supply').textContent = tokenSupply.toLocaleString();
+    }
+
+    // Atualizar junto com os outros cálculos
+    document.addEventListener('DOMContentLoaded', () => {
+        const values = calculateTokenValues(5750000, 5.85);
+        updateTotalSupply(5750000, 5.85);
+        updateInterface(values);
+        calculateDays();
+        calculateTradingDate();
+    });
+    </script>
+
+    <script>
+    function calculateCurrentValues() {
+        // 1. Valor inicial da dívida em reais
+        const initialDebtBRL = 5750000;
+        
+        // 2. Cotações do dólar
+        const initialUSDRate = 5.85;  // Cotação na emissão
+        const currentUSDRate = 5.75;  // Cotação atual (08/02/2025)
+        
+        // 3. Cálculo do supply (feito apenas uma vez, na emissão)
+        const tokenSupply = Math.floor(initialDebtBRL / initialUSDRate); // 982,905 tokens
+        
+        // 4. Ajuste monetário da dívida em reais
+        const annualRate = 0.12; // 12% a.a.
+        const diffTime = Math.abs(CONFIG.currentDate - CONFIG.issueDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // 38 dias
+        const yearFraction = diffDays / 365;
+        const correction = 1 + (annualRate * yearFraction);
+        
+        // Valor atual da dívida em reais com correção
+        const currentDebtBRL = initialDebtBRL * correction;
+        
+        // 5. Conversão para dólar usando a cotação atual
+        const currentAssetValueUSD = currentDebtBRL / currentUSDRate;
+        
+        // Valor por token
+        const currentTokenValue = currentAssetValueUSD / tokenSupply;
+        
+        return {
+            assetValue: currentAssetValueUSD,
+            tokenValue: currentTokenValue
+        };
+    }
+
+    // Atualizar a interface com os valores calculados
+    function updateValues() {
+        const values = calculateCurrentValues();
+        
+        // Atualizar Current Asset Value
+        document.getElementById('current-asset-value').textContent = 
+            `$${values.assetValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        
+        // Atualizar Future Settlement Value / Token
+        document.getElementById('token-value').textContent = 
+            `$${values.tokenValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+    }
+
+    // Chamar quando a página carregar
+    document.addEventListener('DOMContentLoaded', updateValues);
+    </script>
+
+    <!-- Função para calcular o Current Upside -->
+    <script>
+    function calculateCurrentUpside() {
+        // Pegar o preço atual do token baseado na fase
+        const currentTokenPrice = 0.55; // Estamos na fase 2
+        
+        // Calcular o Future Settlement Value
+        const initialDebtBRL = 5750000;
+        const initialUSDRate = 5.85;
+        const currentUSDRate = 5.75;
+        const tokenSupply = Math.floor(initialDebtBRL / initialUSDRate);
+        
+        // Correção de 38 dias (12% a.a.)
+        const yearFraction = 38 / 365;
+        const correction = 1 + (0.12 * yearFraction);
+        
+        // Valor atual em BRL corrigido
+        const currentDebtBRL = initialDebtBRL * correction;
+        
+        // FSV em USD
+        const futureSettlementValue = (currentDebtBRL / currentUSDRate) / tokenSupply;
+        
+        // Cálculo do upside
+        const upside = ((futureSettlementValue - currentTokenPrice) / currentTokenPrice) * 100;
+        
+        return Math.round(upside);
+    }
+
+    // Função para atualizar o upside na interface
+    function updateUpside() {
+        const upside = calculateCurrentUpside();
+        const upsideElement = document.getElementById('current-upside');
+        if (upsideElement) {
+            upsideElement.textContent = `${upside}%`;
+        }
+    }
+
+    // Atualizar quando a página carregar
+    document.addEventListener('DOMContentLoaded', () => {
+        updateUpside();
+    });
     </script>
 </body>
 </html> 

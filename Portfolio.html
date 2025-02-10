@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Division Share</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space_Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="https://unpkg.com/@solana/wallet-adapter-base"></script>
+    <script src="https://unpkg.com/@solana/wallet-adapter-phantom"></script>
+    <script src="https://solflare.com/provider.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0B0F1A] text-white font-['Space_Grotesk']">
+    <!-- Sidebar - esconder em mobile -->
+    <aside class="fixed left-0 top-0 h-screen w-[300px] bg-[#151B2B] hidden md:block">
+        <!-- Container da Animação -->
+        <div class="w-full h-[300px] relative mt-8">
+            <iframe 
+                src="./solana-animation.html" 
+                class="w-full h-full absolute inset-0"
+                frameborder="0"
+                scrolling="no"
+                allowtransparency="true"
+                style="pointer-events: auto; background: transparent;"
+            ></iframe>
+        </div>
+
+        <!-- Menu de Navegação -->
+        <div class="p-4">
+            <nav class="space-y-4">
+                <a href="/" class="flex items-center space-x-3 text-gray-400 hover:text-white px-4 py-2">
+                    <span>💰</span>
+                    <span>Buy Tokens</span>
+                </a>
+                <a href="Portfolio.html" class="flex items-center space-x-3 text-yellow-500 px-4 py-2 rounded-lg bg-[#2A3447]">
+                    <span>📊</span>
+                    <span>Portfolio</span>
+                </a>
+                <div class="flex items-center justify-between space-x-3 text-gray-400 px-4 py-2 opacity-50 cursor-not-allowed">
+                    <div class="flex items-center space-x-3">
+                        <span>⚡</span>
+                        <span>Staking</span>
+                    </div>
+                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Coming Soon</span>
+                </div>
+                <div class="flex items-center justify-between space-x-3 text-gray-400 px-4 py-2 opacity-50 cursor-not-allowed">
+                    <div class="flex items-center space-x-3">
+                        <span>🏛️</span>
+                        <span>Governance</span>
+                    </div>
+                    <span class="text-xs bg-gray-700 px-2 py-1 rounded">Coming Soon</span>
+                </div>
+            </nav>
+
+            <div class="absolute bottom-8 left-4 space-y-2">
+                <a href="#" class="block text-sm text-gray-400 hover:text-white">Contact Us</a>
+                <a href="./whitepaper.html" class="block text-sm text-gray-400 hover:text-white">Whitepaper</a>
+                <a href="#" class="block text-sm text-gray-400 hover:text-white">Investment Disclaimer</a>
+                <a href="#" class="block text-sm text-gray-400 hover:text-white">Data Privacy Policy</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-[300px] p-7">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl">Your portfolio</h1>
+            <button id="connect-wallet" class="bg-gradient-to-r from-[#3A64D8] to-[#2A9D8F] px-8 py-3 rounded-lg">
+                Connect Wallet
+            </button>
+        </div>
+
+        <div class="bg-[#151B2B] rounded-lg p-6">
+            <p class="text-gray-400 mb-6">Track and manage your portfolio</p>
+
+            <!-- Estado: Carteira Não Conectada -->
+            <div id="wallet-not-connected" class="text-center py-12">
+                <div class="max-w-md mx-auto space-y-6">
+                    <div class="bg-[#1F2B45] rounded-lg p-8">
+                        <img src="./logo.png" alt="DIV" class="h-16 w-16 mx-auto mb-6">
+                        <h2 class="text-xl mb-4">Connect your wallet to view your portfolio</h2>
+                        <p class="text-gray-400 mb-6">
+                            Track your DIVSHARE holdings, staking rewards, and investment tokens all in one place
+                        </p>
+                        <button id="connect-wallet-portfolio" class="bg-gradient-to-r from-[#3A64D8] to-[#2A9D8F] px-8 py-3 rounded-lg">
+                            Connect Wallet
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado: Carteira Conectada -->
+            <div id="wallet-connected" class="hidden">
+                <!-- DIVSHARE Holdings & Staking -->
+                <div class="mb-12">
+                    <div class="grid grid-cols-2 gap-8">
+                        <!-- DIVSHARE Holdings -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-4">
+                                <img src="./logo.png" alt="DIV" class="h-6 w-6">
+                                <h2 class="text-xl">DIVSHARE Holdings</h2>
+                            </div>
+                            <div class="bg-[#1F2B45] rounded-lg p-6">
+                                <div class="space-y-4">
+                                    <div>
+                                        <div class="text-gray-400 mb-2">Amount</div>
+                                        <div class="text-2xl font-bold">1,500 DIVSHARE</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-400 mb-2">Current Value</div>
+                                        <div class="text-2xl font-bold">$3,750.00</div>
+                                        <div class="text-sm text-gray-400">$2.50/token</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Staking -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-yellow-500">⚡</span>
+                                <h2 class="text-xl">Staking</h2>
+                            </div>
+                            <div class="bg-[#1F2B45] rounded-lg p-6">
+                                <div class="space-y-4">
+                                    <div>
+                                        <div class="text-gray-400 mb-2">Staked Amount</div>
+                                        <div class="text-2xl font-bold">500 DIVSHARE</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-400 mb-2">Rewards</div>
+                                        <div class="text-2xl font-bold text-yellow-500">+25 DIVSHARE</div>
+                                        <div class="text-sm text-gray-400">12% APY</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment Holdings -->
+                <div class="mb-12">
+                    <h2 class="text-xl mb-4">Investment Holdings</h2>
+                    <div class="bg-[#1F2B45] rounded-lg overflow-hidden">
+                        <!-- Cabeçalho da tabela -->
+                        <div class="grid grid-cols-6 p-4 text-sm text-gray-400 border-b border-gray-700">
+                            <div>Token</div>
+                            <div>Type</div>
+                            <div>Stage</div>
+                            <div class="text-right">Quantity</div>
+                            <div class="text-right">Price/Token</div>
+                            <div class="text-right">Current Value</div>
+                        </div>
+
+                        <!-- Lista de tokens -->
+                        <div class="divide-y divide-gray-700">
+                            <!-- DVCR1 Token -->
+                            <div class="grid grid-cols-6 p-4 items-center hover:bg-[#2A3447]">
+                                <div class="flex items-center gap-2">
+                                    <img src="./logo.png" alt="DIV" class="h-6 w-6">
+                                    <div>DVCR1</div>
+                                </div>
+                                <div class="text-blue-400">Credit</div>
+                                <div>
+                                    <span class="text-xs bg-green-500/10 text-green-500 px-2 py-1 rounded-full">
+                                        Trading on DEX
+                                    </span>
+                                </div>
+                                <div class="text-right">1,000</div>
+                                <div class="text-right">$0.55</div>
+                                <div class="text-right">$550.00</div>
+                            </div>
+
+                            <!-- DVPC1 Token -->
+                            <div class="grid grid-cols-6 p-4 items-center hover:bg-[#2A3447]">
+                                <div class="flex items-center gap-2">
+                                    <img src="./logo.png" alt="DIV" class="h-6 w-6">
+                                    <div>DVPC1</div>
+                                </div>
+                                <div class="text-purple-400">Precatorio</div>
+                                <div>
+                                    <span class="text-xs bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded-full">
+                                        Open Sale
+                                    </span>
+                                </div>
+                                <div class="text-right">2,500</div>
+                                <div class="text-right">$0.50</div>
+                                <div class="text-right">$1,250.00</div>
+                            </div>
+                        </div>
+
+                        <!-- Total -->
+                        <div class="grid grid-cols-6 p-4 bg-[#1A2235] border-t border-gray-700">
+                            <div class="col-span-5 font-medium">Total Investment Value</div>
+                            <div class="text-right font-medium">$1,800.00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transaction History -->
+                <div>
+                    <h2 class="text-xl mb-4">Transaction history</h2>
+                    <div class="bg-[#1F2B45] rounded-lg overflow-hidden">
+                        <!-- Cabeçalho da tabela -->
+                        <div class="grid grid-cols-6 p-4 text-sm text-gray-400 border-b border-gray-700">
+                            <div>Date</div>
+                            <div>Token</div>
+                            <div>Type</div>
+                            <div class="text-right">Amount</div>
+                            <div class="text-right">Price</div>
+                            <div class="text-right">Total</div>
+                        </div>
+
+                        <!-- Lista de transações -->
+                        <div class="divide-y divide-gray-700">
+                            <!-- Compra -->
+                            <div class="grid grid-cols-6 p-4 items-center">
+                                <div class="text-sm">Feb 8, 2024</div>
+                                <div>DVCR1</div>
+                                <div>
+                                    <span class="text-xs bg-green-500/10 text-green-500 px-2 py-1 rounded-full">Buy</span>
+                                </div>
+                                <div class="text-right">1,000</div>
+                                <div class="text-right">$0.55</div>
+                                <div class="text-right">$550.00</div>
+                            </div>
+
+                            <!-- Venda -->
+                            <div class="grid grid-cols-6 p-4 items-center">
+                                <div class="text-sm">Feb 7, 2024</div>
+                                <div>DVPC1</div>
+                                <div>
+                                    <span class="text-xs bg-red-500/10 text-red-500 px-2 py-1 rounded-full">Sell</span>
+                                </div>
+                                <div class="text-right">500</div>
+                                <div class="text-right">$0.50</div>
+                                <div class="text-right">$250.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Menu mobile -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#151B2B] border-t border-gray-800 p-4 md:hidden">
+        <div class="flex justify-around">
+            <a href="#" class="text-gray-400">
+                <span>💰</span>
+            </a>
+            <a href="Portfolio.html" class="text-yellow-500">
+                <span>📊</span>
+            </a>
+            <a href="#" class="text-gray-400">
+                <span>⚡</span>
+            </a>
+            <a href="#" class="text-gray-400">
+                <span>🏛️</span>
+            </a>
+        </div>
+    </nav>
+
+    <script src="./wallet.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const walletNotConnected = document.getElementById('wallet-not-connected');
+        const walletConnected = document.getElementById('wallet-connected');
+        const connectWalletBtn = document.getElementById('connect-wallet');
+        const connectWalletPortfolioBtn = document.getElementById('connect-wallet-portfolio');
+
+        function updatePortfolioView(isConnected) {
+            if (isConnected) {
+                walletNotConnected.classList.add('hidden');
+                walletConnected.classList.remove('hidden');
+            } else {
+                walletNotConnected.classList.remove('hidden');
+                walletConnected.classList.add('hidden');
+            }
+        }
+
+        // Verificar estado inicial da carteira
+        const isWalletConnected = false; // Isso virá do seu wallet.js
+        updatePortfolioView(isWalletConnected);
+
+        // Adicionar listeners para os botões de conexão
+        [connectWalletBtn, connectWalletPortfolioBtn].forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', async () => {
+                    try {
+                        // Aqui você chamará a função de conexão da carteira do seu wallet.js
+                        // await walletManager.connect();
+                        updatePortfolioView(true);
+                    } catch (error) {
+                        console.error('Failed to connect wallet:', error);
+                    }
+                });
+            }
+        });
+    });
+    </script>
+</body>
+</html>
